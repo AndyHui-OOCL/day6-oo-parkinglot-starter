@@ -23,6 +23,13 @@ public class ParkingLot {
         return parkingTicket;
     }
 
+    public Car fetch(ParkingTicket ticket) {
+        if(parkingLot.get(ticket) != null) {
+            return parkingLot.remove(ticket);
+        }
+        throw new Error("Unrecognized parking ticket");
+    }
+
     boolean isParkingLotFull() {
         return parkingLot.size() >= capacity;
     }
