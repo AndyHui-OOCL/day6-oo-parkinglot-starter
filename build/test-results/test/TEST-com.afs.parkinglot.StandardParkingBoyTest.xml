@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.afs.parkinglot.StandardParkingBoyTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2025-09-08T13:55:52" hostname="HUIAN2-W11" time="0.016">
+<testsuite name="com.afs.parkinglot.StandardParkingBoyTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2025-09-08T14:00:07" hostname="HUIAN2-W11" time="0.016">
   <properties/>
   <testcase name="should_return_error_when_fetchCar_given_2_parking_lots_and_used_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
-  <testcase name="should_return_parking_ticket_when_parkCar_given_a_car()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
-  <testcase name="should_return_error_when_fetchCar_given_2_parking_lots_and_null_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
-  <testcase name="should_return_error_when_fetchCar_given_used_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
+  <testcase name="should_return_parking_ticket_when_parkCar_given_a_car()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
+  <testcase name="should_return_error_when_fetchCar_given_2_parking_lots_and_null_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
+  <testcase name="should_return_error_when_fetchCar_given_used_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
   <testcase name="should_return_cars_when_fetchCar_given_2_parking_lots_and_2_valid_tickers()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
   <testcase name="should_return_error_when_fetchCar_given_null_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
-  <testcase name="should_return_error_when_fetchCar_given_2_full_parking_lots()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
-  <testcase name="should_return_error_message_when_fetchCar_given_a_nonvalid_parking_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
-  <testcase name="should_return_no_parking_ticker_when_parkCar_given_invalid_car_and_parking_lot_not_full()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
-  <testcase name="should_park_first_lot_when_park_car_given_two_parking_lots()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
-  <testcase name="should_return_car_when_fetchCar_given_a_valid_parking_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
+  <testcase name="should_return_error_when_fetchCar_given_2_full_parking_lots()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
+  <testcase name="should_return_error_message_when_fetchCar_given_a_nonvalid_parking_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
+  <testcase name="should_return_no_parking_ticker_when_parkCar_given_invalid_car_and_parking_lot_not_full()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
+  <testcase name="should_park_first_lot_when_park_car_given_two_parking_lots()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
+  <testcase name="should_return_car_when_fetchCar_given_a_valid_parking_ticket()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
   <testcase name="should_park_second_lot_when_park_car_given_first_full_second_not_full()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
   <testcase name="should_return_no_parking_ticker_when_parkCar_given_parked_car()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
-  <testcase name="should_return_error_when_parkCar_given_valid_car_and_parking_lot_full()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.001"/>
+  <testcase name="should_return_error_when_parkCar_given_valid_car_and_parking_lot_full()" classname="com.afs.parkinglot.StandardParkingBoyTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

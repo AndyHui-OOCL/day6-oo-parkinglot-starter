@@ -15,6 +15,10 @@ public class StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car){
+        if (car == null) {
+            return null;
+        }
+
         int startIndex = nextParkingIndex;
         int currentIndex = startIndex;
         do {
