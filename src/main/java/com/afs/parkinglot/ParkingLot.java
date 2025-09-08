@@ -16,7 +16,7 @@ public class ParkingLot {
     }
 
     public ParkingTicket park(Car car){
-        if(isParkingLotFull()) {
+        if((isFull())) {
              throw new Error("No available position");
         }
         if (car == null || parkingLot.containsValue(car)) {
@@ -34,7 +34,7 @@ public class ParkingLot {
         throw new Error("Unrecognized parking ticket");
     }
 
-    boolean isParkingLotFull() {
+    boolean isFull() {
         return parkingLot.size() >= capacity;
     }
 }
