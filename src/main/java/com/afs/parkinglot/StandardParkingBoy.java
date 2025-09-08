@@ -14,10 +14,6 @@ public class StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car){
-        if (car == null) {
-            return null;
-        }
-
         for(ParkingLot currentLot: managedParkingLot) {
             if(!currentLot.isFull()) {
                 return currentLot.park(car);

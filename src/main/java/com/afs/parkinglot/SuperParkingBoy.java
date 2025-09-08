@@ -11,10 +11,6 @@ public class SuperParkingBoy extends StandardParkingBoy{
 
     @Override
     public ParkingTicket park(Car car) {
-        if(car == null) {
-            return null;
-        }
-
         List<ParkingLot> sortedParkingLots = new ArrayList<>(managedParkingLot);
         sortedParkingLots.sort(Comparator.comparing(ParkingLot::getAvailabilityRate).reversed());
         for (ParkingLot parkingLot : sortedParkingLots) {
