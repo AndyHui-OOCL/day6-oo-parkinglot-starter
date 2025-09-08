@@ -12,11 +12,18 @@ public class ParkingLot {
     }
 
     public ParkingTicket park(Car car){
-        if(parkingLot.size() >= capacity || car == null || parkingLot.containsValue(car)) {
+        if(isParkingLotFull()) {
+             throw new Error("No available position");
+        }
+        if (car == null || parkingLot.containsValue(car)) {
             return null;
         }
-        ParkingTicket parkingTicket = new ParkingTicket(car);
+        ParkingTicket parkingTicket = new ParkingTicket();
         parkingLot.put(parkingTicket, car);
         return parkingTicket;
+    }
+
+    boolean isParkingLotFull() {
+        return parkingLot.size() >= capacity;
     }
 }

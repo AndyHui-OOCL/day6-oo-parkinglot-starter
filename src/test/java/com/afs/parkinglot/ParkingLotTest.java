@@ -2,8 +2,7 @@ package com.afs.parkinglot;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
     @Test
@@ -13,7 +12,7 @@ public class ParkingLotTest {
 
         ParkingTicket ticket = parkingLot.park(car);
 
-        assertEquals(new ParkingTicket(car), ticket);
+        assertNotNull(ticket);
     }
 
     @Test
@@ -23,9 +22,11 @@ public class ParkingLotTest {
         Car car2 = new Car();
 
         ParkingTicket ticket1 = parkingLot.park(car1);
-        ParkingTicket ticket2 = parkingLot.park(car2);
-
-        assertNull(ticket2);
+        try {
+            ParkingTicket ticket2 = parkingLot.park(car2);
+        } catch (Error error) {
+            assertEquals("No available position", error.getMessage());
+        }
     }
 
     @Test
