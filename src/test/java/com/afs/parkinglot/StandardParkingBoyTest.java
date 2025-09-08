@@ -97,6 +97,7 @@ public class StandardParkingBoyTest {
             assertEquals("Unrecognized parking ticket", error.getMessage());
         }
     }
+
     @Test
     public void should_park_first_lot_when_park_car_given_two_parking_lots() {;
         ParkingLot parkingLot1 = new ParkingLot();
@@ -108,6 +109,7 @@ public class StandardParkingBoyTest {
 
         assertEquals(car, parkingLot1.fetch(ticket));
     }
+
     @Test
     public void should_park_second_lot_when_park_car_given_first_full_second_not_full() {
         ParkingLot parkingLot1 = new ParkingLot();
@@ -120,7 +122,6 @@ public class StandardParkingBoyTest {
 
         assertEquals(car2, parkingLot2.fetch(ticket2));
     }
-
 
     @Test
     public void should_return_cars_when_fetchCar_given_2_parking_lots_and_2_valid_tickers() {
@@ -170,6 +171,4 @@ public class StandardParkingBoyTest {
             assertEquals("No available position", error.getMessage());
         }
     }
-
-
 }
