@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.afs.parkinglot.ParkingLotTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-09-08T12:59:18" hostname="Mac" time="0.003">
+<testsuite name="com.afs.parkinglot.ParkingLotTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-09-08T13:16:01" hostname="Mac" time="0.011">
   <properties/>
-  <testcase name="should_return_error_when_fetchCar_given_used_ticker()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
+  <testcase name="should_return_error_when_fetchCar_given_used_ticker()" classname="com.afs.parkinglot.ParkingLotTest" time="0.005"/>
   <testcase name="should_return_error_when_fetchCar_given_null_ticker()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
   <testcase name="should_return_error_message_when_fetchCar_given_a_nonvalid_parking_ticket()" classname="com.afs.parkinglot.ParkingLotTest" time="0.001"/>
   <testcase name="should_return_no_parking_ticker_when_parkCar_given_invalid_car_and_parking_lot_not_full()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
