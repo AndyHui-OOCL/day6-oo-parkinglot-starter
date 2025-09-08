@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ParkingLot {
     private int capacity = 10;
-    private Map<ParkingTicket, Car> parkingLot = new HashMap<>();
+    private final Map<ParkingTicket, Car> parkingLot = new HashMap<>();
 
     ParkingLot(){}
 
@@ -15,7 +15,7 @@ public class ParkingLot {
 
     public ParkingTicket park(Car car){
         if((isFull())) {
-             throw new Error("No available position");
+             throw new ParkingLotException(ParkingLotException.NO_POSITION_ERROR);
         }
         if (car == null || parkingLot.containsValue(car)) {
             return null;
@@ -29,7 +29,7 @@ public class ParkingLot {
         if(parkingLot.get(ticket) != null) {
             return parkingLot.remove(ticket);
         }
-        throw new Error("Unrecognized parking ticket");
+        throw new ParkingLotException(ParkingLotException.UNRECOGNIZED_TICKET_ERROR);
     }
 
     boolean isFull() {

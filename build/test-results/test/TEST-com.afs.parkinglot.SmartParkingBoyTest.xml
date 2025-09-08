@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.afs.parkinglot.SmartParkingBoyTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-09-08T14:04:42" hostname="HUIAN2-W11" time="0.006">
+<testsuite name="com.afs.parkinglot.SmartParkingBoyTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-09-08T14:12:43" hostname="HUIAN2-W11" time="0.013">
   <properties/>
-  <testcase name="should_return_error_when_fetchCar_given_2_parking_lots_and_used_ticket()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.002"/>
-  <testcase name="should_return_error_when_fetchCar_given_2_parking_lots_and_null_ticket()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.001"/>
-  <testcase name="should_return_cars_when_fetchCar_given_2_parking_lots_and_2_valid_tickers()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.001"/>
+  <testcase name="should_return_error_when_fetchCar_given_2_parking_lots_and_used_ticket()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.007"/>
+  <testcase name="should_return_error_when_fetchCar_given_2_parking_lots_and_null_ticket()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.0"/>
+  <testcase name="should_return_cars_when_fetchCar_given_2_parking_lots_and_2_valid_tickers()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.0"/>
   <testcase name="should_park_most_available_lot_when_parkCar_given_two_parking_lots()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.0"/>
   <testcase name="should_return_error_when_fetchCar_given_2_full_parking_lots()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.0"/>
   <testcase name="should_park_sequentially_when_parkCar_given_all_same_available_space()" classname="com.afs.parkinglot.SmartParkingBoyTest" time="0.001"/>

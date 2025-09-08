@@ -23,6 +23,6 @@ public class SmartParkingBoy extends StandardParkingBoy {
             }
         }
         
-        throw new Error("No available position");
+        throw new ParkingLotException(ParkingLotException.NO_POSITION_ERROR);
     }
 }

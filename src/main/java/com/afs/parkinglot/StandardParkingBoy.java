@@ -23,17 +23,17 @@ public class StandardParkingBoy {
                 return currentLot.park(car);
             }
         }
-        throw new Error("No available position");
+        throw new ParkingLotException(ParkingLotException.NO_POSITION_ERROR);
     }
 
     public Car fetch(ParkingTicket ticket) {
         for (ParkingLot parkingLot : managedParkingLot) {
             try {
                 return parkingLot.fetch(ticket);
-            } catch (Error ignored) {
+            } catch (ParkingLotException ignored) {
 
             }
         }
-        throw new Error("Unrecognized parking ticket");
+        throw new ParkingLotException(ParkingLotException.UNRECOGNIZED_TICKET_ERROR);
     }
 }

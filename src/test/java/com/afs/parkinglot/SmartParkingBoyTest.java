@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SmartParkingBoyTest {
     @Test
-    public void should_park_most_available_lot_when_parkCar_given_two_parking_lots() {;
+    public void should_park_most_available_lot_when_parkCar_given_two_parking_lots() {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(5);
         SmartParkingBoy parkingBoy = new SmartParkingBoy(parkingLot1, parkingLot2);
@@ -53,8 +53,8 @@ public class SmartParkingBoyTest {
 
         try {
             parkingBoy.fetch(null);
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
@@ -67,8 +67,8 @@ public class SmartParkingBoyTest {
         try {
             parkingBoy.fetch(ticket1);
             parkingBoy.fetch(ticket1);
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
@@ -78,8 +78,8 @@ public class SmartParkingBoyTest {
         parkingBoy.park(new Car()); parkingBoy.park(new Car());
         try {
             parkingBoy.park(new Car());
-        } catch (Error error) {
-            assertEquals("No available position", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.NO_POSITION_ERROR, exception.getMessage());
         }
     }
 }

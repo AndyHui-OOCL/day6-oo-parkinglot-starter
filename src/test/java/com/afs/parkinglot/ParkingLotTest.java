@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
     @Test
-    public void should_return_parking_ticker_when_parkCar_given_valid_car_parkinglot_not_full(){
+    public void should_return_parking_ticker_when_parkCar_given_valid_car_parking_lot_not_full(){
         ParkingLot parkingLot = new ParkingLot(10);
         Car car = new Car();
 
@@ -21,11 +21,11 @@ public class ParkingLotTest {
         Car car1 = new Car();
         Car car2 = new Car();
 
-        ParkingTicket ticket1 = parkingLot.park(car1);
+        parkingLot.park(car1);
         try {
-            ParkingTicket ticket2 = parkingLot.park(car2);
-        } catch (Error error) {
-            assertEquals("No available position", error.getMessage());
+            parkingLot.park(car2);
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.NO_POSITION_ERROR, exception.getMessage());
         }
     }
 
@@ -43,7 +43,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(10);
         Car car1 = new Car();
 
-        ParkingTicket ticket1 = parkingLot.park(car1);
+        parkingLot.park(car1);
         ParkingTicket ticket2 = parkingLot.park(car1);
 
         assertNull(ticket2);
@@ -68,8 +68,8 @@ public class ParkingLotTest {
 
         try {
             parkingLot.fetch(new ParkingTicket());
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
@@ -81,8 +81,8 @@ public class ParkingLotTest {
 
         try {
             parkingLot.fetch(null);
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
@@ -95,8 +95,8 @@ public class ParkingLotTest {
         try {
             parkingLot.fetch(ticket1);
             parkingLot.fetch(ticket1);
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 }

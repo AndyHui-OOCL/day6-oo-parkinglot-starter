@@ -22,8 +22,8 @@ public class StandardParkingBoyTest {
             for(int i = 0; i < 11; i++) {
                 parkingBoy.park(new Car());
             }
-        } catch (Error error) {
-            assertEquals("No available position", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.NO_POSITION_ERROR, exception.getMessage());
         }
     }
 
@@ -41,7 +41,7 @@ public class StandardParkingBoyTest {
         StandardParkingBoy parkingBoy = new StandardParkingBoy();
         Car car1 = new Car();
 
-        ParkingTicket ticket1 = parkingBoy.park(car1);
+        parkingBoy.park(car1);
         ParkingTicket ticket2 = parkingBoy.park(car1);
 
         assertNull(ticket2);
@@ -66,8 +66,8 @@ public class StandardParkingBoyTest {
 
         try {
             parkingBoy.fetch(new ParkingTicket());
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
@@ -79,8 +79,8 @@ public class StandardParkingBoyTest {
 
         try {
             parkingBoy.fetch(null);
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
@@ -93,13 +93,13 @@ public class StandardParkingBoyTest {
         try {
             parkingBoy.fetch(ticket1);
             parkingBoy.fetch(ticket1);
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
     @Test
-    public void should_park_first_lot_when_park_car_given_two_parking_lots() {;
+    public void should_park_first_lot_when_park_car_given_two_parking_lots() {
         ParkingLot parkingLot1 = new ParkingLot();
         ParkingLot parkingLot2 = new ParkingLot();
         StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot1, parkingLot2);
@@ -142,8 +142,8 @@ public class StandardParkingBoyTest {
 
         try {
             parkingBoy.fetch(null);
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
@@ -156,8 +156,8 @@ public class StandardParkingBoyTest {
         try {
             parkingBoy.fetch(ticket1);
             parkingBoy.fetch(ticket1);
-        } catch (Error error) {
-            assertEquals("Unrecognized parking ticket", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.UNRECOGNIZED_TICKET_ERROR, exception.getMessage());
         }
     }
 
@@ -167,8 +167,8 @@ public class StandardParkingBoyTest {
         parkingBoy.park(new Car()); parkingBoy.park(new Car());
         try {
             parkingBoy.park(new Car());
-        } catch (Error error) {
-            assertEquals("No available position", error.getMessage());
+        } catch (ParkingLotException exception) {
+            assertEquals(ParkingLotException.NO_POSITION_ERROR, exception.getMessage());
         }
     }
 }
