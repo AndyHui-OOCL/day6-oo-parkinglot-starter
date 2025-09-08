@@ -30,10 +30,21 @@ public class ParkingLotTest {
 
     @Test
     public void should_return_no_parking_ticker_when_parkCar_given_invalid_car_and_parking_lot_not_full(){
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(10);
 
         ParkingTicket ticket = parkingLot.park(null);
 
         assertNull(ticket);
+    }
+
+    @Test
+    public void should_return_no_parking_ticker_when_parkCar_given_parked_car(){
+        ParkingLot parkingLot = new ParkingLot(10);
+        Car car1 = new Car();
+
+        ParkingTicket ticket1 = parkingLot.park(car1);
+        ParkingTicket ticket2 = parkingLot.park(car1);
+
+        assertNull(ticket2);
     }
 }

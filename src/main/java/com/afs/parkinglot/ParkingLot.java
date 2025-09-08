@@ -12,7 +12,9 @@ public class ParkingLot {
     }
 
     public ParkingTicket park(Car car){
-        if(parkingLot.size() >= capacity || car == null) return null;
+        if(parkingLot.size() >= capacity || car == null || parkingLot.containsValue(car)) {
+            return null;
+        }
         ParkingTicket parkingTicket = new ParkingTicket(car);
         parkingLot.put(parkingTicket, car);
         return parkingTicket;
