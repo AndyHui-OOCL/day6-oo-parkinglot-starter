@@ -3,8 +3,8 @@ package com.afs.parkinglot;
 import java.util.List;
 
 public class StandardParkingBoy {
-    private List<ParkingLot> managedParkingLot;
-    private int nextParkingIndex = 0;
+    protected List<ParkingLot> managedParkingLot;
+    protected int nextParkingIndex = 0;
 
     StandardParkingBoy() {
         managedParkingLot = List.of(new ParkingLot());

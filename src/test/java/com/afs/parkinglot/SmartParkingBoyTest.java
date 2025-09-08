@@ -18,23 +18,25 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_park_most_available_lot_when_parkCar_given_first_others_not_full() {
-        ParkingLot parkingLot1 = new ParkingLot(0);
+    public void should_park_sequentially_when_parkCar_given_all_same_available_space() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(1);
         ParkingLot parkingLot3 = new ParkingLot(3);
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot1, parkingLot2, parkingLot3);
+        SmartParkingBoy parkingBoy = new SmartParkingBoy(parkingLot1, parkingLot2, parkingLot3);
 
-        Car car1 = new Car(); Car car2 = new Car();
+        Car car1 = new Car(); Car car2 = new Car(); Car car3 = new Car();
         ParkingTicket ticket1 = parkingBoy.park(car1);
         ParkingTicket ticket2 = parkingBoy.park(car2);
+        ParkingTicket ticket3 = parkingBoy.park(car3);
 
-        assertEquals(car1, parkingLot2.fetch(ticket1));
-        assertEquals(car2, parkingLot2.fetch(ticket2));
+        assertEquals(car1, parkingLot3.fetch(ticket1));
+        assertEquals(car2, parkingLot3.fetch(ticket2));
+        assertEquals(car3, parkingLot1.fetch(ticket3));
     }
 
     @Test
     public void should_return_cars_when_fetchCar_given_2_parking_lots_and_2_valid_tickers() {
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(new ParkingLot(3), new ParkingLot(1));
+        SmartParkingBoy parkingBoy = new SmartParkingBoy(new ParkingLot(3), new ParkingLot(1));
         Car car1 = new Car(); Car car2 = new Car();
         ParkingTicket ticket1 = parkingBoy.park(car1);
         ParkingTicket ticket2 = parkingBoy.park(car2);
@@ -45,7 +47,7 @@ public class SmartParkingBoyTest {
 
     @Test
     public void should_return_error_when_fetchCar_given_2_parking_lots_and_null_ticket() {
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(new ParkingLot(), new ParkingLot());
+        SmartParkingBoy parkingBoy = new SmartParkingBoy(new ParkingLot(), new ParkingLot());
         Car car1 = new Car();
         parkingBoy.park(car1);
 
@@ -58,7 +60,7 @@ public class SmartParkingBoyTest {
 
     @Test
     public void should_return_error_when_fetchCar_given_2_parking_lots_and_used_ticket() {
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(new ParkingLot(), new ParkingLot());
+        SmartParkingBoy parkingBoy = new SmartParkingBoy(new ParkingLot(), new ParkingLot());
         Car car1 = new Car();
         ParkingTicket ticket1 = parkingBoy.park(car1);
 
@@ -72,7 +74,7 @@ public class SmartParkingBoyTest {
 
     @Test
     public void should_return_error_when_fetchCar_given_2_full_parking_lots(){
-        StandardParkingBoy parkingBoy = new StandardParkingBoy(new ParkingLot(1), new ParkingLot(1));
+        SmartParkingBoy parkingBoy = new SmartParkingBoy(new ParkingLot(1), new ParkingLot(1));
         parkingBoy.park(new Car()); parkingBoy.park(new Car());
         try {
             parkingBoy.park(new Car());
