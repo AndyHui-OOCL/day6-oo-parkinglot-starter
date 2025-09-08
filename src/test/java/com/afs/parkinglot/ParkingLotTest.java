@@ -64,10 +64,10 @@ public class ParkingLotTest {
     public void should_return_error_message_when_fetchCar_given_a_nonvalid_parking_ticket() {
         ParkingLot parkingLot = new ParkingLot(10);
         Car car1 = new Car();
-        ParkingTicket ticket1 = parkingLot.park(car1);
+        parkingLot.park(car1);
 
         try {
-            Car fetchedCar = parkingLot.fetch(new ParkingTicket());
+            parkingLot.fetch(new ParkingTicket());
         } catch (Error error) {
             assertEquals("Unrecognized parking ticket", error.getMessage());
         }
@@ -77,10 +77,10 @@ public class ParkingLotTest {
     public void should_return_error_when_fetchCar_given_null_ticker() {
         ParkingLot parkingLot = new ParkingLot(10);
         Car car1 = new Car();
-        ParkingTicket ticket1 = parkingLot.park(car1);
+        parkingLot.park(car1);
 
         try {
-            Car fetchedCar = parkingLot.fetch(null);
+            parkingLot.fetch(null);
         } catch (Error error) {
             assertEquals("Unrecognized parking ticket", error.getMessage());
         }
@@ -91,7 +91,6 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(10);
         Car car1 = new Car();
         ParkingTicket ticket1 = parkingLot.park(car1);
-
 
         try {
             parkingLot.fetch(ticket1);
