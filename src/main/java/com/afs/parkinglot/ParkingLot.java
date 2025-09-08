@@ -7,9 +7,7 @@ public class ParkingLot {
     private int capacity = 10;
     private Map<ParkingTicket, Car> parkingLot = new HashMap<>();
 
-    ParkingLot(){
-
-    }
+    ParkingLot(){}
 
     ParkingLot(int capacity) {
         this.capacity = capacity;
@@ -41,4 +39,6 @@ public class ParkingLot {
     public int getAvailableSpace() {
         return capacity - parkingLot.size();
     }
+
+    public float getAvailabilityRate() {return (float) capacity / (float) parkingLot.size();}
 }

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.afs.parkinglot.ParkingLotTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-09-08T13:44:51" hostname="HUIAN2-W11" time="0.009">
+<testsuite name="com.afs.parkinglot.ParkingLotTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-09-08T13:55:52" hostname="HUIAN2-W11" time="0.006">
   <properties/>
   <testcase name="should_return_error_when_fetchCar_given_used_ticker()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
   <testcase name="should_return_error_when_fetchCar_given_null_ticker()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
   <testcase name="should_return_error_message_when_fetchCar_given_a_nonvalid_parking_ticket()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
   <testcase name="should_return_no_parking_ticker_when_parkCar_given_invalid_car_and_parking_lot_not_full()" classname="com.afs.parkinglot.ParkingLotTest" time="0.001"/>
   <testcase name="should_return_car_when_fetchCar_given_a_valid_parking_ticket()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
-  <testcase name="should_return_no_parking_ticker_when_parkCar_given_parked_car()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
-  <testcase name="should_return_parking_ticker_when_parkCar_given_valid_car_parkinglot_not_full()" classname="com.afs.parkinglot.ParkingLotTest" time="0.001"/>
-  <testcase name="should_return_error_when_parkCar_given_valid_car_and_parking_lot_full()" classname="com.afs.parkinglot.ParkingLotTest" time="0.001"/>
+  <testcase name="should_return_no_parking_ticker_when_parkCar_given_parked_car()" classname="com.afs.parkinglot.ParkingLotTest" time="0.001"/>
+  <testcase name="should_return_parking_ticker_when_parkCar_given_valid_car_parkinglot_not_full()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
+  <testcase name="should_return_error_when_parkCar_given_valid_car_and_parking_lot_full()" classname="com.afs.parkinglot.ParkingLotTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

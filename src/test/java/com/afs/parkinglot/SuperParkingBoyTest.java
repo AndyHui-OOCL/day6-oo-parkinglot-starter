@@ -4,12 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SmartParkingBoyTest {
+public class SuperParkingBoyTest {
     @Test
-    public void should_park_most_available_lot_when_parkCar_given_two_parking_lots() {;
-        ParkingLot parkingLot1 = new ParkingLot(1);
+    public void should_park_highest_availability_rate_lot_when_parkCar_given_two_parking_lots() {;
+        ParkingLot parkingLot1 = new ParkingLot(10);
         ParkingLot parkingLot2 = new ParkingLot(5);
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(parkingLot1, parkingLot2);
+        parkingLot1.park(new Car()); parkingLot1.park(new Car());
+        SuperParkingBoy parkingBoy = new SuperParkingBoy(parkingLot1, parkingLot2);
         Car car = new Car();
 
         ParkingTicket ticket = parkingBoy.park(car);
@@ -18,25 +19,27 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_park_sequentially_when_parkCar_given_all_same_available_space() {
-        ParkingLot parkingLot1 = new ParkingLot(1);
-        ParkingLot parkingLot2 = new ParkingLot(1);
-        ParkingLot parkingLot3 = new ParkingLot(3);
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(parkingLot1, parkingLot2, parkingLot3);
+    public void should_park_sequentially_when_parkCar_given_all_same_availability_rate() {
+        ParkingLot parkingLot1 = new ParkingLot(2);
+        ParkingLot parkingLot2 = new ParkingLot(4);
 
-        Car car1 = new Car(); Car car2 = new Car(); Car car3 = new Car();
+        SuperParkingBoy parkingBoy = new SuperParkingBoy(parkingLot1, parkingLot2);
+
+        Car car1 = new Car(); Car car2 = new Car(); Car car3 = new Car(); Car car4 = new Car();
         ParkingTicket ticket1 = parkingBoy.park(car1);
         ParkingTicket ticket2 = parkingBoy.park(car2);
         ParkingTicket ticket3 = parkingBoy.park(car3);
+        ParkingTicket ticket4 = parkingBoy.park(car4);
 
-        assertEquals(car1, parkingLot3.fetch(ticket1));
-        assertEquals(car2, parkingLot3.fetch(ticket2));
-        assertEquals(car3, parkingLot1.fetch(ticket3));
+        assertEquals(car1, parkingLot1.fetch(ticket1));
+        assertEquals(car2, parkingLot2.fetch(ticket2));
+        assertEquals(car3, parkingLot2.fetch(ticket3));
+        assertEquals(car4, parkingLot1.fetch(ticket4));
     }
 
     @Test
     public void should_return_cars_when_fetchCar_given_2_parking_lots_and_2_valid_tickers() {
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(new ParkingLot(3), new ParkingLot(1));
+        SuperParkingBoy parkingBoy = new SuperParkingBoy(new ParkingLot(3), new ParkingLot(1));
         Car car1 = new Car(); Car car2 = new Car();
         ParkingTicket ticket1 = parkingBoy.park(car1);
         ParkingTicket ticket2 = parkingBoy.park(car2);
@@ -47,7 +50,7 @@ public class SmartParkingBoyTest {
 
     @Test
     public void should_return_error_when_fetchCar_given_2_parking_lots_and_null_ticket() {
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(new ParkingLot(), new ParkingLot());
+        SuperParkingBoy parkingBoy = new SuperParkingBoy(new ParkingLot(), new ParkingLot());
         Car car1 = new Car();
         parkingBoy.park(car1);
 
@@ -60,7 +63,7 @@ public class SmartParkingBoyTest {
 
     @Test
     public void should_return_error_when_fetchCar_given_2_parking_lots_and_used_ticket() {
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(new ParkingLot(), new ParkingLot());
+        SuperParkingBoy parkingBoy = new SuperParkingBoy(new ParkingLot(), new ParkingLot());
         Car car1 = new Car();
         ParkingTicket ticket1 = parkingBoy.park(car1);
 
@@ -74,7 +77,7 @@ public class SmartParkingBoyTest {
 
     @Test
     public void should_return_error_when_fetchCar_given_2_full_parking_lots(){
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(new ParkingLot(1), new ParkingLot(1));
+        SuperParkingBoy parkingBoy = new SuperParkingBoy(new ParkingLot(1), new ParkingLot(1));
         parkingBoy.park(new Car()); parkingBoy.park(new Car());
         try {
             parkingBoy.park(new Car());
