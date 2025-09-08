@@ -6,4 +6,8 @@ public class StandardParkingBoy {
     StandardParkingBoy() {
         managedParkingLot = new ParkingLot();
     }
+
+    public ParkingTicket park(Car car){
+        return managedParkingLot.park(car);
+    }
 }
