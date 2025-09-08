@@ -112,7 +112,7 @@ public class StandardParkingBoyTest {
 
     @Test
     public void should_park_second_lot_when_park_car_given_first_full_second_not_full() {
-        ParkingLot parkingLot1 = new ParkingLot();
+        ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot();
         StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot1, parkingLot2);
 

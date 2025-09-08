@@ -4,7 +4,6 @@ import java.util.List;
 
 public class StandardParkingBoy {
     protected List<ParkingLot> managedParkingLot;
-    protected int nextParkingIndex = 0;
 
     StandardParkingBoy() {
         managedParkingLot = List.of(new ParkingLot());
@@ -19,27 +18,21 @@ public class StandardParkingBoy {
             return null;
         }
 
-        int startIndex = nextParkingIndex;
-        int currentIndex = startIndex;
-        do {
-            ParkingLot currentLot = managedParkingLot.get(currentIndex);
+        for(ParkingLot currentLot: managedParkingLot) {
             if(!currentLot.isFull()) {
-                ParkingTicket ticket = currentLot.park(car);
-                nextParkingIndex = (currentIndex + 1) % managedParkingLot.size();
-                return ticket;
+                return currentLot.park(car);
             }
-            currentIndex = (currentIndex + 1) % managedParkingLot.size();
-        } while(currentIndex != startIndex);
+        }
         throw new Error("No available position");
     }
 
     public Car fetch(ParkingTicket ticket) {
-        for(int i = 0; i < managedParkingLot.size(); i++) {
+        for (ParkingLot parkingLot : managedParkingLot) {
             try {
-                Car parkedCar = managedParkingLot.get(i).fetch(ticket);
-                nextParkingIndex = i;
-                return parkedCar;
-            } catch (Error ignored) {}
+                return parkingLot.fetch(ticket);
+            } catch (Error ignored) {
+
+            }
         }
         throw new Error("Unrecognized parking ticket");
     }
