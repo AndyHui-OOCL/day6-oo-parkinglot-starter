@@ -46,4 +46,55 @@ public class StandardParkingBoyTest {
 
         assertNull(ticket2);
     }
+
+    @Test
+    public void should_return_car_when_fetchCar_given_a_valid_parking_ticket() {
+        StandardParkingBoy parkingBoy = new StandardParkingBoy();
+        Car car1 = new Car();
+        ParkingTicket ticket1 = parkingBoy.park(car1);
+
+        Car fetchedCar = parkingBoy.fetch(ticket1);
+
+        assertEquals(car1, fetchedCar);
+    }
+
+    @Test
+    public void should_return_error_message_when_fetchCar_given_a_nonvalid_parking_ticket() {
+        StandardParkingBoy parkingBoy = new StandardParkingBoy();
+        Car car1 = new Car();
+        parkingBoy.park(car1);
+
+        try {
+            parkingBoy.fetch(new ParkingTicket());
+        } catch (Error error) {
+            assertEquals("Unrecognized parking ticket", error.getMessage());
+        }
+    }
+
+    @Test
+    public void should_return_error_when_fetchCar_given_null_ticker() {
+        StandardParkingBoy parkingBoy = new StandardParkingBoy();
+        Car car1 = new Car();
+        parkingBoy.park(car1);
+
+        try {
+            parkingBoy.fetch(null);
+        } catch (Error error) {
+            assertEquals("Unrecognized parking ticket", error.getMessage());
+        }
+    }
+
+    @Test
+    public void should_return_error_when_fetchCar_given_used_ticker() {
+        StandardParkingBoy parkingBoy = new StandardParkingBoy();
+        Car car1 = new Car();
+        ParkingTicket ticket1 = parkingBoy.park(car1);
+
+        try {
+            parkingBoy.fetch(ticket1);
+            parkingBoy.fetch(ticket1);
+        } catch (Error error) {
+            assertEquals("Unrecognized parking ticket", error.getMessage());
+        }
+    }
 }
